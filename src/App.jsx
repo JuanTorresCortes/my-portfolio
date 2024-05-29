@@ -1,12 +1,19 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import React from "react";
+import { Container, CssBaseline, Box } from "@mui/material";
 import "./App.css";
+import NavBar from "./Components/NavBar";
+import HeroSection from "./Components/HeroSection";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <></>;
+  return (
+    <div>
+      <Container>
+        <CssBaseline />
+        <NavBar />
+        <HeroSection />
+      </Container>
+    </div>
+  );
 }
 
 export default App;
