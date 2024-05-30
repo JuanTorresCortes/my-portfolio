@@ -5,16 +5,20 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
 import myPic from "../Image/my-pic.jpeg"; // relative path = /src/Image/my-pic.jpeg
 
-const HeroSection = () => {
+const HeroSection = ({ boxShadow }) => {
   return (
     <Box
       sx={{
         display: "flex",
-        flexDirection: "row",
+        flexDirection: { xs: "column", md: "row" }, // Column layout on small screens, row layout on medium and larger screens
         alignItems: "center",
-        // textAlign: "center",
         justifyContent: "space-evenly",
         mt: 10,
+        backgroundColor: "lightgray",
+        border: "1px solid black",
+        padding: { xs: 2, md: 4 }, // Padding changes based on screen size
+        textAlign: "center",
+        boxShadow: boxShadow, // Apply boxShadow prop
       }}
     >
       <Box
@@ -24,12 +28,13 @@ const HeroSection = () => {
           alignItems: "center", // Center items horizontally
           justifyContent: "center", // Center items vertically
           textAlign: "center",
+          mb: { xs: 4, md: 0 }, // Margin bottom on small screens
         }}
       >
         <Avatar
           alt="Juan Torres"
           src={myPic}
-          sx={{ width: 400, height: 400 }}
+          sx={{ width: { xs: 150, md: 400 }, height: { xs: 150, md: 400 } }} // Responsive avatar size
         />
         <Typography variant="h4" component="h1" gutterBottom>
           Juan Torres
@@ -38,22 +43,51 @@ const HeroSection = () => {
           Full Stack Developer
         </Typography>
       </Box>
-      <Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center", // Center items horizontally
+          justifyContent: "center", // Center items vertically
+          textAlign: "center",
+          maxWidth: { xs: "100%", md: "50%" }, // Full width on small screens, half width on medium and larger screens
+        }}
+      >
         <Typography variant="body1" component="p" gutterBottom>
-          Hello, I'm Juan Torres
+          Hello, I'm Juan Torres, a passionate full stack developer with
+          expertise in MERN stack.
         </Typography>
-        <Box sx={{ display: "flex", gap: 2, mt: 2 }}>
-          <Button variant="outlined">Download Resume</Button>
-          <Button variant="outlined">Contact Info</Button>
+        <Box
+          sx={{
+            display: "flex",
+            gap: 2,
+            mt: 2,
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
+          <Button variant="outlined" color="inherit">
+            Resume
+          </Button>
+          <Button variant="outlined" color="inherit">
+            Contact
+          </Button>
         </Box>
-        <Box sx={{ display: "flex", gap: 2, mt: 2 }}>
+        <Box
+          sx={{
+            display: "flex",
+            gap: 2,
+            mt: 2,
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
           <Button
             startIcon={<LinkedInIcon />}
             sx={{ color: "inherit", textTransform: "none" }}
           >
             LinkedIn
           </Button>
-
           <Button
             startIcon={<GitHubIcon />}
             sx={{ color: "inherit", textTransform: "none" }}
